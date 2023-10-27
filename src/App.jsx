@@ -1,12 +1,13 @@
+import Form from "./components/Form"
+
 
 function App() {
-
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Vite + React</h1>
-      <div className="card">
-        <p>Sngular prueba</p>
-      </div>
+    <div className="container mx-auto my-0 my-36 w-11/12 sm:w-8/12">
+      <h1 className="text-3xl font-bold">Sngular prueba</h1>
+      <Form></Form>
+    </div>
     </>
   )
 }
