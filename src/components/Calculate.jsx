@@ -11,23 +11,39 @@ export function fibonacci(n) {
     return c;
 }
 export function triangular(n) {
-    return (n * (n + 1) / 2);
+    let suma = Number(n)+1;
+    return (n * suma) / 2;
 }
 
+export function sum(a,b){
+    return a+b;
+}
 
 export function primo(n) {
-    let raiz = Math.sqrt(n)
-    let log = Math.log(n) * Math.LOG10E;
-    return (raiz / log - 1)
+    let total = 1; 
+	for (let i=1; i<=n; i++) {
+		total = total * i; 
+	}
+	return total; 
 }
 
+
 export function serieN(numero) {
-    return (4 * primo(numero) - triangular(numero)) / fibonacci(numero + 2)
+    let firtsO = 4 * primo(numero)
+    let secO = triangular(numero-1)
+    let tercero = fibonacci(numero+2)
+    
+    return firtsO-secO/tercero;
 }
 
 const Calculate = ({ numero }) => {
 
     let resultado = serieN(numero)
+
+    console.log(serieN(numero))
+    console.log(triangular(numero))
+    console.log(fibonacci(numero))
+
     return (
         <Result
             resultado={resultado}
