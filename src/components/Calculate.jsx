@@ -17,7 +17,7 @@ const Calculate = ({ numero }) => {
 
     return (
         <>
-            <div className="flex text-xl items-center">
+            <div className="flex text-xl items-center py-4">
                 <p>Serie(n) =</p>
                 <div className="px-2 text-center flex-col items-center justify-center">
                     <p className='border-b-2'>(4 * {primo(formatNumberToPrint)} - ({triangular(formatNumberToPrint - 1)}))
