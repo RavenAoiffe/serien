@@ -1,53 +1,36 @@
 import Result from './Result';
+import { primo, triangular, fibonacci } from '../helpers/functions';
 
-export function fibonacci(n) {
-    let a = 0, b = 1, c = n;
-
-    for (let i = 2; i <= n; i++) {
-        c = a + b;
-        a = b;
-        b = c;
-    }
-    return c;
-}
-export function triangular(n) {
-    let suma = Number(n)+1;
-    return (n * suma) / 2;
-}
-
-export function sum(a,b){
-    return a+b;
-}
-
-export function primo(n) {
-    let total = 1; 
-	for (let i=1; i<=n; i++) {
-		total = total * i; 
-	}
-	return total; 
-}
-
-
-export function serieN(numero) {
-    let firtsO = 4 * primo(numero)
-    let secO = triangular(numero-1)
-    let tercero = fibonacci(numero+2)
-    
-    return firtsO-secO/tercero;
+export function serieN(num) {
+    let numberFormat = Number(num)
+    let firtsOperation = 4 * primo(numberFormat)
+    let secondOperation = triangular(numberFormat - 1)
+    let thirdOperation = fibonacci(numberFormat + 2)
+    let rest = firtsOperation - secondOperation;
+    return Number((rest / thirdOperation).toFixed(2));
 }
 
 const Calculate = ({ numero }) => {
 
-    let resultado = serieN(numero)
-
-    console.log(serieN(numero))
-    console.log(triangular(numero))
-    console.log(fibonacci(numero))
+    let result = serieN(numero)
+    let formatNumberToPrint = Number(numero)
 
     return (
-        <Result
-            resultado={resultado}
-        />
+        <>
+            <div className="flex text-xl items-center">
+                <p>Serie(n) =</p>
+                <div className="px-2 text-center flex-col items-center justify-center">
+                    <p className='border-b-2'>(4 * {primo(formatNumberToPrint)} - ({triangular(formatNumberToPrint - 1)}))
+                    </p>
+                    <p className='text-center'>
+                        {fibonacci(formatNumberToPrint + 2)}
+                    </p>
+                </div>
+            </div>
+            <Result
+                result={result}
+            />
+        </>
     );
 }
 
