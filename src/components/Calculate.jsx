@@ -1,41 +1,39 @@
-import { useState, useEffect } from "react";
 import Result from './Result';
-const Calculate = ({numero}) => {
-    
-    const[respuesta,setRespuesta] = useState(0);
+import { primo, triangular, fibonacci } from '../helpers/functions';
 
-    const fibonacci = n => {
-        let a = 0, b = 1, c = n;
-      
-        for(let i = 2; i <= n; i++) {
-          c = a + b;
-          a = b;
-          b = c;
-        }
-        return c;
-      }
-      
-       // console.log(fibonacci(0))
-      
-       const triangular = n => {
-          return(n*(n+1)/2);
-        }
-      
-      //console.log(triangular(1))
-      
-      const primo = n =>{
-        let raiz = Math.sqrt(n)
-        let log = Math.log(n) * Math.LOG10E;
-        return (raiz/log-1)
-      }
-      
-      let resultado = (4*primo(numero) - triangular(numero))/fibonacci(numero + 2)
+export function serieN(num) {
+    let numberFormat = Number(num)
+    let firtsOperation = 4 * primo(numberFormat)
+    let secondOperation = triangular(numberFormat - 1)
+    let thirdOperation = fibonacci(numberFormat + 2)
+    let rest = firtsOperation - secondOperation;
+    return Number((rest / thirdOperation).toFixed(2));
+}
+
+const Calculate = ({ numero }) => {
+
+    let result = serieN(numero)
+    let formatNumberToPrint = Number(numero)
 
     return (
-        <Result
-            resultado={resultado}
-        />
+        <>
+            <div className="flex text-xl items-center py-4">
+                <p>Serie(n) =</p>
+                <div className="px-2 text-center flex-col items-center justify-center">
+                    <p className='border-b-2'>(4 * {primo(formatNumberToPrint)} - ({triangular(formatNumberToPrint - 1)}))
+                    </p>
+                    <p className='text-center'>
+                        {fibonacci(formatNumberToPrint + 2)}
+                    </p>
+                </div>
+            </div>
+            <Result
+                result={result}
+            />
+        </>
     );
 }
+
+
 
 export default Calculate;
