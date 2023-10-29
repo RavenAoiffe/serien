@@ -1,5 +1,5 @@
 //n term in fobonacci serie
-export function fibonacci(n) {
+export const fibonacci = n => {
     let a = 0, b = 1, c = n;
 
     for (let i = 2; i <= n; i++) {
@@ -12,13 +12,13 @@ export function fibonacci(n) {
 
 
 //n term triangular function
-export function triangular(n){
+export const triangular = n =>{
     let suma = Number(n)+1;
     return (n * suma) / 2;
 }
 
 //test is or not primo
-export function isPrimo(numero) {
+export const isPrimo = numero => {
     if (numero <= 1) return false;
     if (numero <= 3) return true;
     if (numero % 2 === 0 || numero % 3 === 0) return false;
@@ -29,7 +29,7 @@ export function isPrimo(numero) {
 }
 
 // n-ésimo primo
-export function primo(n) {
+export const primo = n => {
     if (n < 1) return "El valor de n debe ser positivo.";
     let count = 0;
     let numero = 1;
