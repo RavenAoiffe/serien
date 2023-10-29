@@ -11,9 +11,9 @@ const Form = () => {
     }
     return (
         <>
-            <form>
-                <div className="space-y-12">
-                    <div className="border-b border-gray-900/10 pb-12">
+            <form className="space-y-12 border-b border-gray-900/10 pb-12">
+                <div>
+                    <div>
                         <h2 className="text-base font-semibold leading-7 text-gray-900">Número N</h2>
                         <p className="mt-1 text-sm leading-6 text-gray-600">Introduzca el número N.</p>
 
@@ -34,12 +34,12 @@ const Form = () => {
                     </div>
                 </div>
                 <div className="mt-6 flex items-center justify-end gap-x-6">
-                    <button type="button" className="text-sm font-semibold leading-6 text-gray-900"
+                    <button type="button" className="text-sm font-semibold leading-6 text-gray-900 bg-gray-300 py-2 px-4 rounded-md"
                     onClick={limpiarCampo}
                     >Limpiar</button>
                 </div>
             </form>
-            {numero === ''? 'Introduzca un número' : (
+            {numero === '' || numero <= 0 ? 'Introduzca un número válido' : (
                     <Calculate 
                     numero={numero}
                     />
