@@ -1,11 +1,21 @@
 import { useState } from "react";
 import Calculate from "./Calculate";
-import imgExample from '../../public/unnamed.png';
+import imgExample from '/unnamed.png';
 
 const Form = () => {
 
     const [numero, setNumero] = useState('');
 
+    const changeValue = e =>{
+        if(e.target.value.includes('.')){
+            let integer = e.target.value.split('.')
+            setNumero(integer[0])
+            e.target.value = integer[0]
+        }
+        else{
+            setNumero(e.target.value)
+        }
+    }
     const limpiarCampo = () => {
         document.getElementById('numbern').value = 0;
         setNumero(0)
@@ -21,10 +31,10 @@ const Form = () => {
                             <div className="sm:col-span-4">
                                 <div className="mt-2">
                                     <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                        <input type="number" name="numbern" id="numbern"
+                                        <input type="number" name="numbern" id="numbern" min="1" pattern="^[0-9]+"
                                             className="border block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                            placeholder="3"
-                                            onChange={e => setNumero(e.target.value)}
+                                            placeholder="3" 
+                                            onChange={e => changeValue(e)}
                                             defaultValue={''}
                                         />
                                     </div>
