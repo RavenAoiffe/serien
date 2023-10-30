@@ -15,3 +15,11 @@ Currently, two official plugins are available:
 - Open a new terminal and run *npm install* for get the dependencies
 - Then run *npm run dev* for start the project
 - Open the localhost 
+
+
+# Unit Test
+
+- The library used for testing was https://vitest.dev/
+- The dependencies must be dowload with the npm install 
+- Write in the terminal *npm run test* for check the test cases
+  
