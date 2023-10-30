@@ -25,7 +25,7 @@ const Form = () => {
             <form className="space-y-12 border-b border-gray-900/10 pb-12">
                 <div>
                     <div>
-                        <p className="mt-1 text-sm leading-6 text-gray-600 text-xl py-2">Introduzca un número positivo y mayor a cero para calcular la función "serie(n)"</p>
+                        <p className="mt-1 leading-6 text-gray-600 text-xl py-2 md:text-sm">Introduzca un número entero positivo y mayor a cero para calcular la función "serie(n)"</p>
                         <img src={imgExample} alt="serien" className="w-80 py-4"/>
                         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div className="sm:col-span-4">
